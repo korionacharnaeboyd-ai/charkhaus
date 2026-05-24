@@ -1092,11 +1092,15 @@ async function submitModal(){
     });
     const data=await res.json();
     if(!res.ok)throw new Error(data.error||'Failed');
-  }catch(err){
-    console.error('Booking error:',err);
-  }
+ }catch(err){
+  console.error('Booking error:',err);
   loading.style.display='none';
-  success.style.display='block';
+  form.style.display='flex';
+  showToast('Email failed. Check Vercel logs.');
+  return;
+}
+loading.style.display='none';
+success.style.display='block';
 }
 
 // CREATOR FORM
@@ -1122,11 +1126,11 @@ async function submitCreator(){
     const data=await res.json();
     if(!res.ok)throw new Error(data.error||'Failed');
   }catch(err){
-    console.error('Creator error:',err);
-  }
-  document.getElementById('cForm').style.display='none';
-  document.getElementById('cSuccess').style.display='block';
-  showToast('Application received! We\'ll be in touch within 5–7 days ✦');
+  console.error('Creator error:',err);
+  loading.style.display='none';
+  form.style.display='flex';
+  showToast('Creator email failed.');
+  return;
 }
 
 // TOAST
