@@ -1,0 +1,8 @@
+{
+  "name": "charkhaus",
+  "version": "1.0.0",
+  "description": "CHARK HAUS — Luxury Creative Studio",
+  "dependencies": {
+    "nodemailer": "^6.9.9"
+  }
+}
