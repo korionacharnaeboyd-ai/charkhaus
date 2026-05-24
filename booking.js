@@ -33,7 +33,7 @@ module.exports = async function handler(req, res) {
     }
   });
 
-  const subject = `New CHARK.CO Booking Inquiry: ${service}`;
+  const subject = `New CHARK HAUS Booking Inquiry: ${service}`;
 
   const text = `
 New booking inquiry from your website:
@@ -50,7 +50,7 @@ ${message || 'No message provided'}
 
   const html = `
     <div style="font-family:Arial,sans-serif;line-height:1.6;color:#1A1410;">
-      <h2>New CHARK.CO Booking Inquiry</h2>
+      <h2>New CHARK HAUS Booking Inquiry</h2>
       <p><strong>Name:</strong> ${firstName} ${lastName}</p>
       <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
       <p><strong>Instagram:</strong> ${instagram || 'Not provided'}</p>
@@ -63,7 +63,7 @@ ${message || 'No message provided'}
 
   try {
     await transporter.sendMail({
-      from: `CHARK.CO Website <${process.env.GMAIL_USER}>`,
+      from: `CHARK HAUS Website <${process.env.GMAIL_USER}>`,
       to: toEmail,
       replyTo: email,
       subject,
